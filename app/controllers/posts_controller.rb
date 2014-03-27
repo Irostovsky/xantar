@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new post_params
     if @post.save
-      render text: 'ok'
+      go_to posts_path
     else
       render :new
     end
