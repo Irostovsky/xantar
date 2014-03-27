@@ -1,0 +1,7 @@
+<%= form_for @post ||= Post.new, remote: true do |f| %>
+  <%= f.bs_text_area :content, extra: {label: "Post"} %>
+
+  <div class='form-group'>
+    <%= f.submit "Continue", class: 'btn btn-primary' %>
+  </div>
+<% end %>
