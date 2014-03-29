@@ -1,7 +1,7 @@
 class CreatePayments < ActiveRecord::Migration
   def change
     create_table :payments do |t|
-      t.belongs_to :posts
+      t.belongs_to :post
       t.text :params
       t.boolean :success
       t.string :first_name

@@ -6,9 +6,15 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    @payment = Payment.new payment_params
+    @payment = @post.payments.build payment_params
     if @payment.valid?
-      render text: 'valid'
+      if @payment.purchase
+        flash[:notice] = "Your successfully paid and your post has been submitted!"
+        redirect_to root_path
+      else
+        flash[:alert] = "Ups something is went wrong! #{@payment.params['message']}"
+        render :failure
+      end
     else
       render :new
     end

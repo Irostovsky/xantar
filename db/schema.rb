@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140329171838) do
 
   create_table "payments", force: true do |t|
-    t.integer  "posts_id"
+    t.integer  "post_id"
     t.text     "params"
     t.boolean  "success"
     t.string   "first_name"

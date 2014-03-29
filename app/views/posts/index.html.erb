@@ -7,8 +7,14 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.content %></td>
-        <td><%= post.purchased_at %></td>
-        <td><%= post.created_at %></td>
+        <td>
+          <% if post.purchased_at %>
+            <span class="label label-success">Submitted</span> at <%= post.purchased_at %>
+          <% else %>
+            <%= link_to "Submit now", new_post_payment_path(post) %>
+          <% end %>
+        </td>
+        <td>Created at: <%= post.created_at %></td>
       </tr>
     <% end %>
   </tbody>
