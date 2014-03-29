@@ -22,7 +22,7 @@ module FormHelper
       errors = object.errors[column]
       content_tag(:div, class: "form-group #{'has-error' if errors.any?}") do
         content = self.label column, extra[:label], class: "control-label"
-        content += self.send *input + [class: "form-control"]
+        content += self.send *input + [class: "form-control #{extra[:input_class]}"]
         content += content_tag :span, errors.join(", "), class: "help-block error"
         content
       end

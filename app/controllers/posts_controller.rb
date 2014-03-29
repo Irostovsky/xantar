@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new post_params
     if @post.save
-      go_to posts_path
+      go_to new_post_payment_path(@post)
     else
       render :new
     end

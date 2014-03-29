@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327102608) do
+ActiveRecord::Schema.define(version: 20140329171838) do
+
+  create_table "payments", force: true do |t|
+    t.integer  "posts_id"
+    t.text     "params"
+    t.boolean  "success"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.datetime "card_expires_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "content"

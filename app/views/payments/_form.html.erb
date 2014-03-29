@@ -1,0 +1,17 @@
+<%= form_for @payment, url: post_payment_path(@post), remote: true do |f| %>
+<% f.object.errors[:base].each do |msg| %>
+  <div class="alert alert-danger"><%= msg %></div>
+<% end %>
+<p><b>Amount: </b> <%= number_to_currency(5) %></p>
+  <%= f.bs_field :text_field, :first_name %>
+  <%= f.bs_field :text_field, :last_name %>
+  <%= f.bs_field :select, :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {}, extra: {input_class: 'input-30'} %>
+  <%= f.bs_field :text_field, :card_number %>
+  <%= f.bs_field :text_field, :card_verification, extra: {input_class: 'input-25'}%>
+  <%= f.bs_field :date_select, :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true}, extra: {input_class: 'dt_select'} %>
+
+  <div class='form-group'>
+    <%= f.submit "Process", class: 'btn btn-primary' %>
+    <%= link_to "Cancel", root_path %>
+  </div>
+<% end %>
