@@ -27,7 +27,8 @@ class Payment < ActiveRecord::Base
   end
 
   def purchase
-    response = GATEWAY.purchase(500, credit_card, :ip => "127.0.0.1")
+    amount = Money.new(Xantar::Application.config.post_amount, "USD").cents
+    response = GATEWAY.purchase(amount, credit_card, :ip => "127.0.0.1")
     post.update_attribute(:purchased_at, Time.zone.now) if response.success?
     self.success = response.success?
     p self.params = response.params

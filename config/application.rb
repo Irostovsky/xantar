@@ -8,6 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Xantar
   class Application < Rails::Application
-    ActiveMerchant::Billing::Base.mode = :test
+    config.post_amount = 5
   end
 end

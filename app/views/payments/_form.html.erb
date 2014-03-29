@@ -2,7 +2,7 @@
 <% f.object.errors[:base].each do |msg| %>
   <div class="alert alert-danger"><%= msg %></div>
 <% end %>
-<p><b>Amount: </b> <%= number_to_currency(5) %></p>
+<p><b>Amount: </b> <%= number_to_currency(Xantar::Application.config.post_amount) %></p>
   <%= f.bs_field :text_field, :first_name %>
   <%= f.bs_field :text_field, :last_name %>
   <%= f.bs_field :select, :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], {}, extra: {input_class: 'input-30'} %>
