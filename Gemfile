@@ -20,6 +20,7 @@ gem 'less-rails-bootstrap'
 
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'minitest'
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'mocha', :require => false
